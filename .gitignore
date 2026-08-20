@@ -1,0 +1,42 @@
+# Binaries
+/server
+*.exe
+*.out
+
+# Go build artifacts
+*.o
+*.a
+*.so
+
+# Test binaries
+*.test
+
+# Coverage files
+*.coverage
+*.coverprofile
+
+# Dependency directories
+vendor/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Uploads directory (keep structure but ignore contents)
+resources/uploads/*
+!resources/uploads/.gitkeep
+
+# Temporary files
+tmp/
+temp/
+
