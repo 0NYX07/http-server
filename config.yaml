@@ -1,0 +1,25 @@
+# HTTP Server Configuration
+server:
+  host: "127.0.0.1"
+  port: 8080
+  thread_pool_size: 10
+  connection_timeout: 30        # seconds
+  max_requests_per_connection: 100
+  read_buffer_size: 8192
+  listen_queue_size: 50
+
+logging:
+  level: "info"                  # debug, info, warn, error
+  colored: true
+  timestamp_format: "2006-01-02 15:04:05"
+
+security:
+  enable_rate_limiting: false
+  rate_limit_per_minute: 100
+  enable_host_validation: true
+  enable_path_validation: true
+
+paths:
+  resources_dir: "resources"
+  uploads_dir: "resources/uploads"
+
