@@ -1,0 +1,18 @@
+﻿{
+  "name": "Krishna Sahni",
+  "email": "0NYX07@users.noreply.github.com",
+  "message": "This is a sample JSON file for testing POST requests to the HTTP server.",
+  "timestamp": "2025-10-10T12:00:00Z",
+  "data": {
+    "key1": "value1",
+    "key2": "value2",
+    "nested": {
+      "array": [1, 2, 3, 4, 5],
+      "boolean": true,
+      "null_value": null
+    }
+  },
+  "tags": ["test", "http", "server", "json"],
+  "count": 42
+}
+

@@ -1,0 +1,35 @@
+Multi-threaded HTTP Server - Sample Text File
+==============================================
+
+This is a sample text file served by the HTTP server.
+When you request this file via GET, it will be downloaded with Content-Type: application/octet-stream.
+
+Server Features:
+- Multi-threaded architecture with worker pool
+- HTTP/1.1 keep-alive support
+- Binary file transfer capabilities
+- Path traversal protection
+- Host header validation
+- Real-time metrics and logging
+
+Test Cases:
+1. Download this file: curl http://localhost:8080/sample.txt -O
+2. View in browser (will trigger download)
+3. Test with keep-alive connection
+4. Verify Content-Disposition header is set correctly
+
+Binary Transfer Test:
+This file should be transferred as binary data (application/octet-stream) with the
+Content-Disposition: attachment; filename="sample.txt" header, which triggers
+a download in web browsers instead of displaying the content inline.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor 
+incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
+nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
+fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
+culpa qui officia deserunt mollit anim id est laborum.
+
+End of sample file.
+
