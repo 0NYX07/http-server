@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - Multi-threaded HTTP Server</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .feature-section {
+            margin: 30px 0;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .feature-section h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .feature-section p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+        
+        .feature-section ul {
+            list-style-position: inside;
+            color: #666;
+            margin: 10px 0;
+        }
+        
+        .feature-section li {
+            margin: 8px 0;
+        }
+        
+        .back-link {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: #764ba2;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>✨ Server Features</h1>
+        </header>
+        
+        <div class="content">
+            <div class="highlight">
+                <h2>Production-Ready Multi-threaded HTTP Server</h2>
+                <p>Built from scratch with Go's low-level socket programming, this server implements the complete HTTP/1.1 protocol with advanced features for performance, security, and reliability.</p>
+            </div>
+            
+            <div class="feature-section">
+                <h2>🚀 Core Features</h2>
+                <ul>
+                    <li><strong>HTTP/1.1 & HTTP/1.0 Support:</strong> Full protocol compliance with proper version handling</li>
+                    <li><strong>GET & POST Methods:</strong> Complete implementation with proper status codes</li>
+                    <li><strong>Static File Serving:</strong> HTML, images, text files, and more</li>
+                    <li><strong>Binary File Transfer:</strong> Efficient streaming with Content-Disposition headers</li>
+                    <li><strong>JSON API:</strong> POST endpoint with validation and file storage</li>
+                </ul>
+            </div>
+            
+            <div class="feature-section">
+                <h2>⚡ Performance Features</h2>
+                <ul>
+                    <li><strong>Worker Pool Pattern:</strong> Configurable thread pool (default: 10 workers)</li>
+                    <li><strong>Connection Queue:</strong> Automatic queuing when pool is saturated</li>
+                    <li><strong>Persistent Connections:</strong> HTTP keep-alive with configurable timeout (30s)</li>
+                    <li><strong>Request Limiting:</strong> Maximum 100 requests per persistent connection</li>
+                    <li><strong>Efficient Socket Reuse:</strong> Minimizes connection overhead</li>
+                    <li><strong>Non-blocking I/O:</strong> Goroutine-based concurrency</li>
+                </ul>
+            </div>
+            
+            <div class="feature-section">
+                <h2>🔒 Security Features</h2>
+                <ul>
+                    <li><strong>Path Traversal Protection:</strong> Comprehensive validation against directory escape</li>
+                    <li><strong>Host Header Validation:</strong> Prevents host injection attacks</li>
+                    <li><strong>Input Sanitization:</strong> Validates all user input and paths</li>
+                    <li><strong>Rate Limiting:</strong> Per-IP request limiting (100/min)</li>
+                    <li><strong>Directory Listing Prevention:</strong> Only serves files, not directories</li>
+                    <li><strong>Content-Type Validation:</strong> Strict MIME type checking</li>
+                </ul>
+            </div>
+            
+            <div class="feature-section">
+                <h2>📊 Monitoring & Logging</h2>
+                <ul>
+                    <li><strong>Structured Logging:</strong> Color-coded logs with timestamps</li>
+                    <li><strong>Thread Identification:</strong> Track requests by worker thread</li>
+                    <li><strong>Request Timing:</strong> Millisecond-precision performance metrics</li>
+                    <li><strong>Security Event Logging:</strong> All violations logged for audit</li>
+                    <li><strong>Metrics Endpoint:</strong> Real-time server statistics at /__metrics__</li>
+                    <li><strong>Connection Tracking:</strong> Monitor active and queued connections</li>
+                </ul>
+            </div>
+            
+            <div class="feature-section">
+                <h2>🎯 Advanced Features</h2>
+                <ul>
+                    <li><strong>Graceful Shutdown:</strong> Clean connection termination on SIGINT/SIGTERM</li>
+                    <li><strong>Configuration Management:</strong> YAML config + CLI arguments</li>
+                    <li><strong>Panic Recovery:</strong> Automatic error recovery per connection</li>
+                    <li><strong>RFC 7231 Compliance:</strong> Proper HTTP date formatting</li>
+                    <li><strong>Multiple Content Types:</strong> HTML, JSON, binary streams</li>
+                    <li><strong>Custom Response Headers:</strong> Server identification, cache control</li>
+                </ul>
+            </div>
+            
+            <div class="feature-section">
+                <h2>📁 Supported File Types</h2>
+                <p>The server handles various file types with appropriate Content-Type headers:</p>
+                <ul>
+                    <li><strong>.html, .htm:</strong> text/html (rendered in browser)</li>
+                    <li><strong>.txt:</strong> application/octet-stream (downloaded)</li>
+                    <li><strong>.png:</strong> application/octet-stream (downloaded)</li>
+                    <li><strong>.jpg, .jpeg:</strong> application/octet-stream (downloaded)</li>
+                    <li><strong>JSON API:</strong> application/json</li>
+                </ul>
+            </div>
+            
+            <div class="feature-section">
+                <h2>🔧 Configuration Options</h2>
+                <ul>
+                    <li>Server host and port (via CLI or config file)</li>
+                    <li>Thread pool size (1-1000 workers)</li>
+                    <li>Connection timeout (seconds)</li>
+                    <li>Maximum requests per connection</li>
+                    <li>Read buffer size</li>
+                    <li>Listen queue size</li>
+                    <li>Logging level (debug/info/warn/error)</li>
+                    <li>Security feature toggles</li>
+                </ul>
+            </div>
+            
+            <a href="/" class="back-link">← Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>
+

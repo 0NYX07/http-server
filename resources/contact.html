@@ -1,0 +1,198 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Multi-threaded HTTP Server</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .content h2 {
+            color: #667eea;
+            margin: 30px 0 15px 0;
+            font-size: 1.8em;
+        }
+        
+        .content p {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        .back-link {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: #764ba2;
+        }
+        
+        .info-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            margin: 20px 0;
+        }
+        
+        .info-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .info-card p {
+            margin: 8px 0;
+        }
+        
+        .api-example {
+            background: #2d3748;
+            color: #a0aec0;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+        
+        .api-example code {
+            color: #48bb78;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📬 Contact & API</h1>
+        </header>
+        
+        <div class="content">
+            <h2>Get in Touch</h2>
+            <p>
+                This project was created as part of a university assignment on multi-threaded server programming. If you have questions or feedback, feel free to reach out!
+            </p>
+            
+            <div class="info-card">
+                <h3>Project Information</h3>
+                <p><strong>Author:</strong> Krishna Sahni</p>
+                <p><strong>Course:</strong> Socket Programming & Network Systems</p>
+                <p><strong>Technology:</strong> Go (Golang)</p>
+                <p><strong>License:</strong> Educational Use</p>
+            </div>
+            
+            <h2>API Testing</h2>
+            <p>
+                You can test the server's POST endpoint using curl or any HTTP client. Here are some examples:
+            </p>
+            
+            <div class="info-card">
+                <h3>Test GET Request</h3>
+                <div class="api-example">
+                    <code>curl http://localhost:8080/</code><br>
+                    <code>curl http://localhost:8080/about.html</code><br>
+                    <code>curl http://localhost:8080/sample.txt -O</code>
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <h3>Test POST Request</h3>
+                <div class="api-example">
+                    <code>curl -X POST http://localhost:8080/upload \</code><br>
+                    <code>  -H "Content-Type: application/json" \</code><br>
+                    <code>  -d '{"name": "test", "value": 123}'</code>
+                </div>
+                <p style="margin-top: 15px;">Expected response:</p>
+                <div class="api-example">
+                    <code>{</code><br>
+                    <code>  "status": "success",</code><br>
+                    <code>  "message": "File created successfully",</code><br>
+                    <code>  "filepath": "/uploads/upload_20241010_123456_a7b9.json"</code><br>
+                    <code>}</code>
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <h3>Test Keep-Alive Connection</h3>
+                <div class="api-example">
+                    <code>curl -v -H "Connection: keep-alive" \</code><br>
+                    <code>  http://localhost:8080/</code>
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <h3>View Server Metrics</h3>
+                <div class="api-example">
+                    <code>curl http://localhost:8080/__metrics__</code>
+                </div>
+            </div>
+            
+            <h2>Security Testing</h2>
+            <p>
+                The server includes robust security features. Try these to see security in action:
+            </p>
+            
+            <div class="api-example">
+                # Path traversal attempt (should return 403)<br>
+                <code>curl http://localhost:8080/../etc/passwd</code><br><br>
+                
+                # Invalid host header (should return 403)<br>
+                <code>curl -H "Host: evil.com" http://localhost:8080/</code><br><br>
+                
+                # Missing host header (should return 400)<br>
+                <code>curl -H "Host:" http://localhost:8080/</code>
+            </div>
+            
+            <h2>Resources</h2>
+            <p>
+                For more information about this project, check out the README.md file in the repository or view the source code on GitHub.
+            </p>
+            
+            <a href="/" class="back-link">← Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-threaded HTTP Server</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .feature-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+        
+        .feature-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        .feature-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links a {
+            padding: 12px 25px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background 0.3s, transform 0.2s;
+            font-weight: 600;
+        }
+        
+        .nav-links a:hover {
+            background: #764ba2;
+            transform: scale(1.05);
+        }
+        
+        .stats {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .stats h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        
+        footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+        
+        footer p {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Multi-threaded HTTP Server</h1>
+            <p>Built with Go - High Performance Socket Programming</p>
+        </header>
+        
+        <div class="content">
+            <h2>Welcome to the HTTP Server!</h2>
+            <p>This is a production-ready, multi-threaded HTTP server built from scratch using low-level socket programming in Go. It demonstrates advanced networking concepts, concurrent programming, and security best practices.</p>
+            
+            <div class="nav-links">
+                <a href="/about.html">About</a>
+                <a href="/contact.html">Contact</a>
+                <a href="/features.html">Features</a>
+                <a href="/__metrics__">Metrics</a>
+            </div>
+            
+            <div class="stats">
+                <h2>Server Status: Running ✓</h2>
+                <p>HTTP/1.1 Compliant | Multi-threaded | Security Hardened</p>
+            </div>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <h3>⚡ High Performance</h3>
+                    <p>Multi-threaded architecture with configurable worker pool for handling thousands of concurrent connections efficiently.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>🔒 Security First</h3>
+                    <p>Built-in protection against path traversal, host header injection, and other common web vulnerabilities.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>📊 Real-time Metrics</h3>
+                    <p>Monitor server performance with built-in metrics endpoint showing request counts, response times, and thread pool status.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>🔄 Persistent Connections</h3>
+                    <p>HTTP/1.1 keep-alive support with configurable timeouts for efficient connection reuse and reduced latency.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>📁 File Serving</h3>
+                    <p>Efficient binary file transfer for images, documents, and other static content with proper MIME type handling.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>🎯 JSON API</h3>
+                    <p>RESTful POST endpoint for JSON data processing with validation and persistent storage capabilities.</p>
+                </div>
+            </div>
+            
+            <h2>Try It Out</h2>
+            <p>You can test various features of this server:</p>
+            <ul style="list-style-position: inside; margin: 20px 0; color: #666;">
+                <li>Download sample files: <a href="/sample.txt" style="color: #667eea;">sample.txt</a></li>
+                <li>View other pages: <a href="/about.html" style="color: #667eea;">about.html</a>, <a href="/contact.html" style="color: #667eea;">contact.html</a></li>
+                <li>Test POST requests to /upload with JSON data</li>
+                <li>Check server metrics at <a href="/__metrics__" style="color: #667eea;">/__metrics__</a></li>
+            </ul>
+        </div>
+        
+        <footer>
+            <p>&copy; 2024 Multi-threaded HTTP Server | Built for Educational Purposes</p>
+            <p>Socket Programming Assignment | Go Programming Language</p>
+        </footer>
+    </div>
+</body>
+</html>
+
