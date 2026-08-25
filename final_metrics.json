@@ -1,0 +1,42 @@
+{
+  "connections": {
+    "active": 1,
+    "queued": 0,
+    "total": 233
+  },
+  "performance": {
+    "avg_response_time_ms": 0,
+    "requests_per_second": 1.731696555628283
+  },
+  "requests": {
+    "by_method": {
+      "DELETE": 0,
+      "GET": 213,
+      "POST": 15,
+      "PUT": 5
+    },
+    "total": 233
+  },
+  "responses": {
+    "by_status": {
+      "200": 101,
+      "201": 0,
+      "400": 0,
+      "403": 0,
+      "404": 10,
+      "405": 5,
+      "415": 0,
+      "429": 116,
+      "500": 0,
+      "503": 0
+    },
+    "total": 232,
+    "total_bytes_served": 743260
+  },
+  "server": {
+    "started_at": "2025-10-10T22:31:47+05:30",
+    "thread_pool_size": 10,
+    "uptime_human": "2m 14s",
+    "uptime_seconds": 134
+  }
+}
